@@ -7,7 +7,8 @@ import { loadingStore } from "@/stores/loading.js";
 
 const routes = setupLayouts(generatedRoutes);
 const router = createRouter({
-  history: createWebHistory("/EC_Back/"),
+  // history: createWebHistory("/EC_Back/"),
+  history: createWebHistory("/ecbotemp/"),
   routes,
 });
 
