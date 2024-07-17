@@ -1,0 +1,1916 @@
+@charset "UTF-8";
+/* custom.scss */
+/* 定義中文字型 */
+@font-face {
+  font-family: "Noto Sans TC";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Noto Sans TC Regular"), local("NotoSansTC-Regular"), url("../assets/font/Noto_Sans_TC/NotoSansTC-Regular.otf") format("woff2");
+}
+html {
+  font-size: 16px;
+}
+
+body {
+  height: 100%;
+  font-family: Arial, Helvetica, Verdana, sans-serif, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei";
+  overflow-x: hidden;
+  background-color: #f8f9fa;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0px;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  accent-color: #212529;
+}
+
+.wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+}
+.wrapper .wrapper-content {
+  padding-left: 280px;
+  width: 100%;
+  position: relative;
+}
+.wrapper .wrapper-content .fullPageLoading {
+  top: 0;
+  left: 280px;
+  height: 100vh;
+  width: calc(100% - 280px);
+  position: fixed;
+  z-index: 2;
+  background-color: rgba(255, 255, 255, 0.85);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0em;
+}
+.wrapper .wrapper-content .fullPageLoading .fullPageLoading-content {
+  height: calc(100% - 72px);
+}
+.wrapper .wrapper-content .fullPageLoading .sr-only {
+  width: 64px;
+  height: 64px;
+}
+.wrapper .wrapper-content .fullPageLoading .spinner-border {
+  margin-bottom: 16px;
+  width: 48px;
+  height: 48px;
+}
+
+.no-wrap-text {
+  white-space: nowrap !important;
+}
+
+/* ---------------------------------------------------
+    COMPONENT STYLE
+----------------------------------------------------- */
+.overlay {
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.alert {
+  position: fixed;
+  z-index: 9999;
+  left: 50%;
+  top: 20%;
+  -webkit-transform: translate(-50%, -20%);
+          transform: translate(-50%, -20%);
+  font-size: 20px;
+}
+
+.customModal {
+  min-width: 700px;
+  position: fixed;
+  background-color: #f8f9fa;
+  border-radius: 16px;
+  left: 50%;
+  top: 10%;
+  -webkit-transform: translate(-50%, -10%);
+          transform: translate(-50%, -10%);
+  padding: 40px;
+  z-index: 9999;
+}
+.customModal .customModal-body {
+  min-height: 60vh;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.nav-link {
+  padding: 10px;
+  font-size: 16px;
+}
+
+.mediumbtn {
+  min-width: 128px;
+  min-height: 48px;
+  padding: 12px 16px 12px 16px;
+  border-radius: 6px;
+  gap: 8px;
+  font-size: 16px;
+  max-height: 48px;
+}
+.mediumbtn:disabled {
+  opacity: 1;
+}
+
+.customConfirmButton, .swal2-confirm {
+  background-color: #0d6efd !important;
+}
+
+.trashcanBtn {
+  max-height: 52px;
+  font-size: 20px;
+}
+
+.table-container {
+  overflow-y: hidden;
+  overflow-x: auto;
+  width: 100%;
+}
+
+table {
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0em;
+  vertical-align: middle;
+  border-collapse: collapse;
+}
+table th {
+  font-weight: 600;
+}
+table th,
+table td {
+  border-top: #dee2e6 2px solid;
+  border-bottom: #dee2e6 2px solid;
+  height: 60px;
+  vertical-align: middle;
+  /* 超过十个中文字元时折行 */
+}
+table th:first-child,
+table td:first-child {
+  width: 50px;
+}
+table th:not(:first-child),
+table td:not(:first-child) {
+  min-width: 130px;
+  max-width: 200px;
+  white-space: normal;
+  word-break: break-all;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.table-hover > tbody > tr:hover > * {
+  --bs-table-bg-state: $backgroundSecondary;
+}
+
+.pagenation {
+  /* 隐藏 input type="number" 的箭头样式 */
+}
+.pagenation i {
+  font-size: 16px;
+}
+.pagenation .pagenation-content {
+  min-width: 139px;
+  margin: 0 32px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #495057;
+}
+.pagenation input[type=number]::-webkit-inner-spin-button,
+.pagenation input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.pagenation .pageInput {
+  width: 60px;
+  height: 48px;
+  padding: 12px 16px 12px 16px;
+  border-radius: 6px;
+  border: 1px;
+  gap: 12px;
+  border: #dee2e6 1px solid;
+  text-align: center;
+  outline: none;
+}
+.pagenation .disabled {
+  color: #ced4da;
+  pointer-events: none;
+  cursor: default;
+  border: none;
+}
+.pagenation button {
+  width: 40px;
+}
+
+.searchResult h4 {
+  font-family: Noto Sans TC;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 29px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #212529;
+  margin-top: 40px;
+  margin-bottom: 16px;
+  margin-left: 8px;
+}
+.searchResult .searchResult-content {
+  border-radius: 16px;
+  background: #ffffff;
+}
+.searchResult .searchResult-content .Result {
+  width: 100%;
+  padding: 36px 16px;
+}
+.searchResult .searchResult-content .Result .showCurrentPageCount {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: 0em;
+  color: #495057;
+  margin: 32px 0;
+}
+.searchResult .searchResult-content .noResult {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0em;
+  color: #495057;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.searchResult .searchResult-content .noResult p {
+  margin-bottom: 0.5rem;
+}
+.searchResult .searchResult-content .noResult .custom-icon {
+  font-size: 42px; /* 设置特定的字体大小 */
+  color: #adb5bd;
+  margin-bottom: 16px;
+}
+
+/* 共用input、select樣式------------------------------- */
+/*Start  Styling Toggle-Switch*/
+.toggle-switch input {
+  opacity: 0;
+}
+
+.toggle-switch label {
+  width: 57px;
+  height: 29px;
+  background: #ccc;
+  border-radius: 50px;
+  display: inline-block;
+  position: relative;
+}
+
+.toggle-switch label:after {
+  content: "";
+  display: block;
+  width: 23px;
+  height: 23px;
+  background: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 2.8px;
+  left: 2.8px;
+  -webkit-transition: left 0.15s ease-out;
+  transition: left 0.15s ease-out;
+}
+
+.toggle-switch input[id=togle-swith]:checked + label:after {
+  left: 31px;
+}
+
+.toggle-switch input[id=togle-swith]:checked + label {
+  background: #0d6efd;
+}
+
+.toggle-switch span {
+  color: #6c757d;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+/*End  Styling Toggle-Switch*/
+.inputOnegroup {
+  width: 100%;
+  border-radius: 8px;
+  border: #dee2e6 1px solid;
+}
+.inputOnegroup .group {
+  position: relative;
+  width: 100%;
+  /* active state for select and input with value */
+}
+.inputOnegroup .group input[type=password]::-ms-reveal {
+  display: none;
+}
+.inputOnegroup .group input {
+  height: 61px;
+  width: 100%;
+  border: none;
+  display: block;
+  border-radius: 8px;
+  padding-left: 0px;
+  padding-top: 24px;
+  font-size: 16px;
+  font-weight: 600;
+}
+.inputOnegroup .group input:focus {
+  outline: none;
+}
+.inputOnegroup .group label {
+  color: #6c757d;
+  font-size: 16px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 0px;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+.inputOnegroup .group input:focus ~ label,
+.inputOnegroup .group input[data-value]:not([data-value=""]) ~ label {
+  top: 8px;
+  -webkit-transform: unset;
+          transform: unset;
+  font-size: 14px;
+}
+.inputOnegroup.error-state {
+  border-color: #dc3545;
+}
+.inputOnegroup input {
+  border: none;
+}
+.inputOnegroup .input-group-left {
+  padding: 16px 18px;
+}
+.inputOnegroup .input-group-left i {
+  font-size: 16px;
+}
+.inputOnegroup .input-group-right {
+  padding-right: 18px;
+}
+.inputOnegroup .input-group-right i {
+  font-size: 16px;
+}
+
+.inputTwogroupBox,
+.inputThreegroup,
+.inputThreegroupBox,
+.SelectTwoGroupBox .SelectThreeGroupBox {
+  width: 100%;
+  /* 选择所有禁用状态的输入框 */
+}
+.inputTwogroupBox input::-webkit-outer-spin-button,
+.inputTwogroupBox input::-webkit-inner-spin-button,
+.inputThreegroup input::-webkit-outer-spin-button,
+.inputThreegroup input::-webkit-inner-spin-button,
+.inputThreegroupBox input::-webkit-outer-spin-button,
+.inputThreegroupBox input::-webkit-inner-spin-button,
+.SelectTwoGroupBox .SelectThreeGroupBox input::-webkit-outer-spin-button,
+.SelectTwoGroupBox .SelectThreeGroupBox input::-webkit-inner-spin-button {
+  -webkit-appearance: none !important;
+  margin: 0;
+}
+.inputTwogroupBox input[type=number],
+.inputThreegroup input[type=number],
+.inputThreegroupBox input[type=number],
+.SelectTwoGroupBox .SelectThreeGroupBox input[type=number] {
+  appearance: textfield; /* 標準的 appearance 屬性 */
+  -webkit-appearance: textfield; /* 兼容WebKit/Blink（例如Chrome和Safari） */
+  -moz-appearance: textfield; /* 兼容Firefox */
+  -ms-appearance: textfield; /* 兼容Microsoft Edge */
+}
+.inputTwogroupBox.disabled input,
+.inputThreegroup.disabled input,
+.inputThreegroupBox.disabled input,
+.SelectTwoGroupBox .SelectThreeGroupBox.disabled input {
+  /* 在此定义禁用状态的样式 */
+  background-color: #f2f2f2; /* 背景颜色 */
+  color: grey !important; /* 文本颜色 */
+  border: 1px solid #ccc; /* 边框样式 */
+  cursor: not-allowed; /* 鼠标指针样式 */
+}
+.inputTwogroupBox i,
+.inputThreegroup i,
+.inputThreegroupBox i,
+.SelectTwoGroupBox .SelectThreeGroupBox i {
+  font-size: 16px;
+}
+.inputTwogroupBox .inputTwogroup,
+.inputTwogroupBox .SelectTwoGroupBox,
+.inputThreegroup .inputTwogroup,
+.inputThreegroup .SelectTwoGroupBox,
+.inputThreegroupBox .inputTwogroup,
+.inputThreegroupBox .SelectTwoGroupBox,
+.SelectTwoGroupBox .SelectThreeGroupBox .inputTwogroup,
+.SelectTwoGroupBox .SelectThreeGroupBox .SelectTwoGroupBox {
+  width: 100%;
+  width: 100%;
+  border: #dee2e6 1px solid;
+  height: 52px;
+  border-radius: 6px;
+  border: 1px;
+  gap: 12px;
+  font-size: 14px;
+}
+.inputTwogroupBox .inputTwogroup .group,
+.inputTwogroupBox .SelectTwoGroupBox .group,
+.inputThreegroup .inputTwogroup .group,
+.inputThreegroup .SelectTwoGroupBox .group,
+.inputThreegroupBox .inputTwogroup .group,
+.inputThreegroupBox .SelectTwoGroupBox .group,
+.SelectTwoGroupBox .SelectThreeGroupBox .inputTwogroup .group,
+.SelectTwoGroupBox .SelectThreeGroupBox .SelectTwoGroupBox .group {
+  position: relative;
+  width: 100%;
+  /* active state for select and input with value */
+}
+.inputTwogroupBox .inputTwogroup .group input[type=password]::-ms-reveal,
+.inputTwogroupBox .SelectTwoGroupBox .group input[type=password]::-ms-reveal,
+.inputThreegroup .inputTwogroup .group input[type=password]::-ms-reveal,
+.inputThreegroup .SelectTwoGroupBox .group input[type=password]::-ms-reveal,
+.inputThreegroupBox .inputTwogroup .group input[type=password]::-ms-reveal,
+.inputThreegroupBox .SelectTwoGroupBox .group input[type=password]::-ms-reveal,
+.SelectTwoGroupBox .SelectThreeGroupBox .inputTwogroup .group input[type=password]::-ms-reveal,
+.SelectTwoGroupBox .SelectThreeGroupBox .SelectTwoGroupBox .group input[type=password]::-ms-reveal {
+  display: none;
+}
+.inputTwogroupBox .inputTwogroup .group input,
+.inputTwogroupBox .SelectTwoGroupBox .group input,
+.inputThreegroup .inputTwogroup .group input,
+.inputThreegroup .SelectTwoGroupBox .group input,
+.inputThreegroupBox .inputTwogroup .group input,
+.inputThreegroupBox .SelectTwoGroupBox .group input,
+.SelectTwoGroupBox .SelectThreeGroupBox .inputTwogroup .group input,
+.SelectTwoGroupBox .SelectThreeGroupBox .SelectTwoGroupBox .group input {
+  width: 100%;
+  border: 1px #e8e8e8 solid;
+  display: block;
+  border-radius: 6px;
+  padding-left: 16px;
+  padding-top: 24px;
+  height: 52px;
+  line-height: 21px;
+  letter-spacing: 0em;
+  color: #212529;
+  font-weight: 600;
+  line-height: 21px;
+  letter-spacing: 0em;
+}
+.inputTwogroupBox .inputTwogroup .group input.error-state,
+.inputTwogroupBox .SelectTwoGroupBox .group input.error-state,
+.inputThreegroup .inputTwogroup .group input.error-state,
+.inputThreegroup .SelectTwoGroupBox .group input.error-state,
+.inputThreegroupBox .inputTwogroup .group input.error-state,
+.inputThreegroupBox .SelectTwoGroupBox .group input.error-state,
+.SelectTwoGroupBox .SelectThreeGroupBox .inputTwogroup .group input.error-state,
+.SelectTwoGroupBox .SelectThreeGroupBox .SelectTwoGroupBox .group input.error-state {
+  border: 1px #dc3545 solid;
+}
+.inputTwogroupBox .inputTwogroup .group input:focus,
+.inputTwogroupBox .SelectTwoGroupBox .group input:focus,
+.inputThreegroup .inputTwogroup .group input:focus,
+.inputThreegroup .SelectTwoGroupBox .group input:focus,
+.inputThreegroupBox .inputTwogroup .group input:focus,
+.inputThreegroupBox .SelectTwoGroupBox .group input:focus,
+.SelectTwoGroupBox .SelectThreeGroupBox .inputTwogroup .group input:focus,
+.SelectTwoGroupBox .SelectThreeGroupBox .SelectTwoGroupBox .group input:focus {
+  outline: none;
+}
+.inputTwogroupBox .inputTwogroup .group label,
+.inputTwogroupBox .SelectTwoGroupBox .group label,
+.inputThreegroup .inputTwogroup .group label,
+.inputThreegroup .SelectTwoGroupBox .group label,
+.inputThreegroupBox .inputTwogroup .group label,
+.inputThreegroupBox .SelectTwoGroupBox .group label,
+.SelectTwoGroupBox .SelectThreeGroupBox .inputTwogroup .group label,
+.SelectTwoGroupBox .SelectThreeGroupBox .SelectTwoGroupBox .group label {
+  color: #6c757d;
+  font-size: 14px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 16px;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+.inputTwogroupBox .inputTwogroup .group input:focus ~ label,
+.inputTwogroupBox .inputTwogroup .group input[data-value]:not([data-value=""]) ~ label,
+.inputTwogroupBox .SelectTwoGroupBox .group input:focus ~ label,
+.inputTwogroupBox .SelectTwoGroupBox .group input[data-value]:not([data-value=""]) ~ label,
+.inputThreegroup .inputTwogroup .group input:focus ~ label,
+.inputThreegroup .inputTwogroup .group input[data-value]:not([data-value=""]) ~ label,
+.inputThreegroup .SelectTwoGroupBox .group input:focus ~ label,
+.inputThreegroup .SelectTwoGroupBox .group input[data-value]:not([data-value=""]) ~ label,
+.inputThreegroupBox .inputTwogroup .group input:focus ~ label,
+.inputThreegroupBox .inputTwogroup .group input[data-value]:not([data-value=""]) ~ label,
+.inputThreegroupBox .SelectTwoGroupBox .group input:focus ~ label,
+.inputThreegroupBox .SelectTwoGroupBox .group input[data-value]:not([data-value=""]) ~ label,
+.SelectTwoGroupBox .SelectThreeGroupBox .inputTwogroup .group input:focus ~ label,
+.SelectTwoGroupBox .SelectThreeGroupBox .inputTwogroup .group input[data-value]:not([data-value=""]) ~ label,
+.SelectTwoGroupBox .SelectThreeGroupBox .SelectTwoGroupBox .group input:focus ~ label,
+.SelectTwoGroupBox .SelectThreeGroupBox .SelectTwoGroupBox .group input[data-value]:not([data-value=""]) ~ label {
+  top: 8px;
+  -webkit-transform: unset;
+          transform: unset;
+}
+.inputTwogroupBox .inputTwogroup .input-group-right,
+.inputTwogroupBox .SelectTwoGroupBox .input-group-right,
+.inputThreegroup .inputTwogroup .input-group-right,
+.inputThreegroup .SelectTwoGroupBox .input-group-right,
+.inputThreegroupBox .inputTwogroup .input-group-right,
+.inputThreegroupBox .SelectTwoGroupBox .input-group-right,
+.SelectTwoGroupBox .SelectThreeGroupBox .inputTwogroup .input-group-right,
+.SelectTwoGroupBox .SelectThreeGroupBox .SelectTwoGroupBox .input-group-right {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+}
+.inputTwogroupBox .inputTwogroup .input-group-right i.error-state,
+.inputTwogroupBox .SelectTwoGroupBox .input-group-right i.error-state,
+.inputThreegroup .inputTwogroup .input-group-right i.error-state,
+.inputThreegroup .SelectTwoGroupBox .input-group-right i.error-state,
+.inputThreegroupBox .inputTwogroup .input-group-right i.error-state,
+.inputThreegroupBox .SelectTwoGroupBox .input-group-right i.error-state,
+.SelectTwoGroupBox .SelectThreeGroupBox .inputTwogroup .input-group-right i.error-state,
+.SelectTwoGroupBox .SelectThreeGroupBox .SelectTwoGroupBox .input-group-right i.error-state {
+  color: #dc3545;
+}
+.inputTwogroupBox .error,
+.inputThreegroup .error,
+.inputThreegroupBox .error,
+.SelectTwoGroupBox .SelectThreeGroupBox .error {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: 0em;
+  color: #dc3545;
+  padding-left: 16px;
+}
+
+.inputThreegroup {
+  width: 100%;
+  font-size: 14px;
+}
+.inputThreegroup .group {
+  position: relative;
+  width: 100%;
+  /* active state for select and input with value */
+}
+.inputThreegroup .group input[type=password]::-ms-reveal {
+  display: none;
+}
+.inputThreegroup .group input {
+  width: 100%;
+  border: none;
+  display: block;
+  border-radius: 6px;
+  border: none;
+  padding-left: 16px;
+  padding-top: 24px;
+  background-color: #f8f9fa;
+  line-height: 21px;
+  letter-spacing: 0em;
+  color: #212529;
+  font-weight: 600;
+  line-height: 21px;
+  letter-spacing: 0em;
+  height: 48px;
+  gap: 12px;
+}
+.inputThreegroup .group input.error-state {
+  border: 1px #dc3545 solid;
+}
+.inputThreegroup .group input:focus {
+  outline: none;
+}
+.inputThreegroup .group label {
+  color: #6c757d;
+  font-size: 14px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 16px;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+.inputThreegroup .group input:focus ~ label,
+.inputThreegroup .group input[data-value]:not([data-value=""]) ~ label {
+  top: 8px;
+  -webkit-transform: unset;
+          transform: unset;
+}
+.inputThreegroup .group i.error-state {
+  color: #dc3545;
+}
+.inputThreegroup.error-state {
+  border-color: #dc3545;
+}
+.inputThreegroup input {
+  border: none;
+}
+.inputThreegroup .input-group-right {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+}
+
+.SelectOnegroupBox,
+.SelectTwoGroupBox {
+  border: #dee2e6 1px solid;
+  border-radius: 6px;
+}
+
+.SelectOnegroupBox,
+.SelectTwoGroupBox {
+  height: 52px;
+}
+.SelectOnegroupBox .select-box__input-text,
+.SelectTwoGroupBox .select-box__input-text {
+  background-color: #ffffff;
+}
+
+.SelectThreeGroupBox {
+  height: 48px;
+}
+.SelectThreeGroupBox .select-box__input-text {
+  background-color: #f8f9fa;
+}
+
+.SelectOnegroupBox,
+.SelectTwoGroupBox,
+.SelectThreeGroupBox {
+  width: 100%;
+}
+
+.Selectgroup {
+  width: 100%;
+}
+.Selectgroup .select-box {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  font-size: 14px;
+  color: #60666d;
+  z-index: 1;
+}
+.Selectgroup .select-box.isSelectOpen .select-box__list {
+  opacity: 1;
+  -webkit-animation-name: none;
+          animation-name: none;
+}
+.Selectgroup .select-box.isSelectOpen .select-box__list .select-box__option {
+  cursor: pointer;
+}
+.Selectgroup .select-box.isSelectOpen .select-box__icon {
+  -webkit-transform: translateY(-50%) rotate(180deg);
+          transform: translateY(-50%) rotate(180deg);
+}
+.Selectgroup .select-box__current {
+  position: relative;
+  cursor: pointer;
+  outline: none;
+}
+.Selectgroup .select-box__current label {
+  position: absolute;
+  left: 16px;
+  top: 3px;
+  font-family: Noto Sans TC;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+.Selectgroup .select-box__icon {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 16px;
+  opacity: 0.3;
+  -webkit-transition: 0.2s ease;
+  transition: 0.2s ease;
+}
+.Selectgroup .select-box__value {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.Selectgroup .select-box__input {
+  display: none;
+}
+.Selectgroup .select-box__input:checked + .select-box__input-text {
+  display: block;
+}
+.Selectgroup .select-box__input-text {
+  height: 100%;
+  display: none;
+  width: 100%;
+  margin: 0;
+  padding-left: 16px;
+  padding-top: 24px;
+  font-family: Noto Sans TC;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #212529;
+  border-radius: 6px;
+}
+.Selectgroup .select-box__list {
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  height: 190px;
+  overflow: auto;
+  background-color: #ffffff;
+  -webkit-animation-name: HideList;
+          animation-name: HideList;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-timing-function: step-start;
+          animation-timing-function: step-start;
+  -webkit-box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.1490196078);
+          box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.1490196078);
+}
+.Selectgroup .select-box__list ul {
+  list-style: none;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+.Selectgroup .select-box__option {
+  display: block;
+  padding: 12px;
+  background-color: #ffffff;
+  color: #212529;
+  font-family: Noto Sans TC;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0em;
+  text-align: left;
+}
+.Selectgroup .select-box__option:hover, .Selectgroup .select-box__option:focus {
+  font-family: Noto Sans TC;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #0a58ca;
+  background-color: #cfe2ff;
+  border-radius: 6px;
+}
+@-webkit-keyframes HideList {
+  from {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
+  to {
+    -webkit-transform: scaleY(0);
+            transform: scaleY(0);
+  }
+}
+@keyframes HideList {
+  from {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
+  to {
+    -webkit-transform: scaleY(0);
+            transform: scaleY(0);
+  }
+}
+@keyframes HideList {
+  from {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
+  to {
+    -webkit-transform: scaleY(0);
+            transform: scaleY(0);
+  }
+}
+.Selectgroup .group {
+  position: relative;
+  width: 100%;
+  /* 調整icon旋轉180度的樣式 */
+  /* active state for select and input with value */
+}
+.Selectgroup .group input[type=password]::-ms-reveal {
+  display: none;
+}
+.Selectgroup .group #searchForm.Level {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  z-index: 999;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.Selectgroup .group select {
+  width: 100%;
+  border: none;
+  display: block;
+  border-radius: 6px;
+  border: none;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 24px;
+  background-color: #f8f9fa;
+  line-height: 21px;
+  letter-spacing: 0em;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  font-size: 14px;
+  line-height: 21px;
+  color: #6c757d;
+  font-weight: 400;
+}
+.Selectgroup .group select .SelectTwoGroupBox {
+  height: 52px;
+}
+.Selectgroup .group select .SelectThreeGroupBox {
+  height: 48px;
+}
+.Selectgroup .group select option {
+  border: none;
+  background-color: #ffffff;
+  height: 40px;
+}
+.Selectgroup .group select option:hover {
+  background-color: #cfe2ff;
+  color: #0a58ca;
+}
+.Selectgroup .group select.valued {
+  color: #212529;
+  font-weight: 600;
+}
+.Selectgroup .group select:focus {
+  outline: none;
+}
+.Selectgroup .group .icon-container {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+  /* 设置 pointer-events: none 让 span 元素不接收点击事件 */
+  pointer-events: none;
+}
+.Selectgroup .group .rotated {
+  /* 讓icon旋轉180度的樣式 */
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+.Selectgroup .group label {
+  color: #6c757d;
+  font-size: 14px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 16px;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+.Selectgroup .group select:valid ~ label {
+  top: 6px;
+  -webkit-transform: unset;
+          transform: unset;
+}
+.Selectgroup.error-state {
+  border-color: #dc3545;
+}
+.Selectgroup .input-group-right {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+}
+
+#clear-button {
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+
+#clear-button.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px #ffffff inset !important;
+}
+
+/* ---------------------------------------------------
+    HEADER STYLE
+----------------------------------------------------- */
+nav#header {
+  height: 72px;
+  padding: 16px 40px;
+  border-bottom: 1px solid #dee2e6;
+  /* 隱藏 hover-box 初始狀態 */
+  /* 將 navbar-brand 的定位設置為相對定位，以便 hover-box 可以根據它定位 */
+  /* 鼠標在 navbar-brand 和 hover-box 上時，顯示 hover-box */
+  /* 垂直排列按鈕 */
+}
+nav#header .hide-box {
+  border-radius: 8px;
+  display: none;
+  min-width: 280px;
+  padding: 16px;
+}
+nav#header .navbar-brand {
+  position: relative;
+}
+nav#header .imgandnamebox {
+  margin-bottom: 16px;
+  color: #6c757d;
+}
+nav#header .imgandnamebox .showName {
+  font-size: 14px;
+}
+nav#header .custom-hr {
+  width: 100%;
+  height: 1px;
+  background: #dee2e6;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+nav#header .hide-box {
+  display: block;
+  position: absolute;
+  top: 105px; /* 距離 navbar-brand 底部的距離 */
+  right: 32px;
+  background-color: #fff;
+  padding: 10px;
+  -webkit-box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.1490196078);
+          box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.1490196078);
+  padding: 16px;
+  z-index: 2;
+}
+nav#header .hide-box::before {
+  content: "";
+  position: absolute;
+  top: -12px;
+  right: -7px;
+  width: 0;
+  height: 0;
+  width: 0;
+  height: 0;
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  border-bottom: 40px solid #ffffff;
+  border-radius: 20px;
+}
+nav#header .hide-box button {
+  font-size: 16px;
+  width: 248px;
+  height: Hug 48px;
+  padding: 12px 16px 12px 16px;
+  border-radius: 8px;
+  margin: 0;
+  color: #495057;
+}
+nav#header .hide-box button:hover {
+  background-color: #f8f9fa;
+  color: #212529;
+}
+nav#header .hide-box button.logout:hover {
+  color: #b02a37;
+}
+nav#header .hide-box .logout {
+  color: #dc3545;
+}
+nav#header .hide-box .logout i {
+  margin-right: 8px;
+}
+nav#header .buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+#sidebar {
+  width: 280px;
+  height: 100vh;
+  position: fixed;
+  z-index: 2;
+  background: #212529;
+  color: #ffffff;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  -webkit-box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.1490196078);
+          box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.1490196078);
+  overflow-y: auto;
+  /* 匹配没有包含 .show 的 .active 元素的 a 子元素 */
+}
+#sidebar.active {
+  margin-left: -250px;
+}
+#sidebar .sidebar-header {
+  padding: 40px 20px;
+}
+#sidebar .sidebar-header a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 28px;
+}
+#sidebar .components {
+  padding: 0px 20px;
+}
+#sidebar ul p {
+  color: #ffffff;
+}
+#sidebar ul li a {
+  font-size: 16px;
+  display: block;
+  text-decoration: none;
+  width: 240px;
+  height: 48px;
+  padding: 12px 16px 12px 16px;
+  margin-bottom: 20px;
+  border-radius: 0.5rem;
+  gap: 12px;
+  color: #ffffff;
+}
+#sidebar ul li a:hover {
+  background: #343a40;
+}
+#sidebar ul li a i {
+  margin-right: 12px;
+}
+#sidebar .sidebar-items a {
+  margin-bottom: 4px;
+  padding: 12px 48px;
+  font-size: 14px;
+}
+#sidebar .sidebar-items a:hover {
+  background: #495057;
+}
+#sidebar ul li.active > a,
+#sidebar a[aria-expanded=true] {
+  margin-bottom: 4px;
+  background-color: #343a40;
+}
+#sidebar a[data-toggle=collapse] {
+  position: relative;
+}
+#sidebar a.openstate {
+  margin-bottom: 4px;
+}
+#sidebar li:is(:has(.show)) > a {
+  margin-bottom: 4px;
+}
+#sidebar li:is(:has(.show)) > a .bi-chevron-down {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  -webkit-transition: 0.2s ease;
+  transition: 0.2s ease;
+}
+#sidebar li:is(:not(.show)) > a .bi-chevron-down {
+  -webkit-transition: 0.2s ease;
+  transition: 0.2s ease;
+}
+#sidebar .active:is(:not(:has(.show))) > a {
+  /* 在這裡添加你需要的樣式 */
+  margin-bottom: 20px;
+}
+
+.active.router-link-exact-active {
+  background-color: #495057;
+}
+
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+#Breadcrumb {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 40px;
+}
+#Breadcrumb i {
+  font-size: 16px;
+}
+#Breadcrumb nav ol {
+  margin: 0;
+}
+#Breadcrumb nav a {
+  text-decoration: none;
+  color: #212529;
+  height: 32px;
+  padding: 0 8px;
+  font-family: Noto Sans TC;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0em;
+  display: inline-block;
+  border-radius: 4px;
+  line-height: 32px;
+}
+#Breadcrumb nav a:hover {
+  background-color: #ffffff;
+  -webkit-box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.0745098039);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.0745098039);
+}
+#Breadcrumb nav .custom-breadcrumb-item i {
+  margin: 0 8px;
+}
+#Breadcrumb nav .disabled {
+  color: #495057;
+  pointer-events: none;
+  cursor: default;
+}
+#Breadcrumb nav .custom-breadcrumb-item:last-child i {
+  display: none;
+}
+
+/* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+#content {
+  width: 100%;
+  padding: 20px;
+  min-height: 100vh;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.page-content {
+  padding: 40px;
+}
+
+/* ---------------------------------------------------
+    LOGIN STYLE
+----------------------------------------------------- */
+.noLogin {
+  height: 100vh;
+}
+
+#login {
+  width: 416px;
+  min-height: 474px;
+  padding: 48px;
+  border-radius: 16px;
+  gap: 48px;
+  background-color: #ffffff;
+}
+#login .loginBtn {
+  height: 56px;
+  padding: 16px;
+  border-radius: 8px;
+  gap: 8px;
+  margin-top: 32px;
+}
+#login .awarning {
+  background-color: #f8d7da;
+  width: 100%;
+  height: 37px;
+  padding: 8px 16px 8px 16px;
+  border-radius: 8px;
+  gap: 8px;
+  color: #b02a37;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: 0em;
+  margin-bottom: 16px;
+}
+#login .awarning i {
+  margin-right: 8px;
+  color: #b02a37;
+}
+#login i {
+  color: #6c757d;
+}
+#login i.error-state {
+  color: #dc3545;
+}
+#login form {
+  height: 100%;
+}
+#login h2 {
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 38px;
+  letter-spacing: 0em;
+}
+#login h2:first-child {
+  margin-bottom: 12px;
+}
+#login h2:nth-child(2) {
+  margin-bottom: 48px;
+}
+#login .btn-primary {
+  font-family: Noto Sans TC;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0em;
+}
+#login .btn-primary:hover {
+  background-color: #0a58ca;
+}
+#login .inputOnegroupBox {
+  margin-bottom: 16px;
+}
+#login .error {
+  font-family: Noto Sans TC;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: 0em;
+  color: #dc3545;
+  margin-left: 12px;
+  margin-top: 4px;
+}
+
+/* ---------------------------------------------------
+    home STYLE
+----------------------------------------------------- */
+#home {
+  height: calc(100vh - 73px - 80px);
+}
+#home h3 {
+  font-family: Noto Sans TC;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 34px;
+  letter-spacing: 0em;
+  text-align: center;
+  margin-top: 40px;
+  color: #6c757d;
+}
+
+/* ---------------------------------------------------
+    memberSearch STYLE
+----------------------------------------------------- */
+.memberSearch .searchResult-content {
+  min-height: calc(100vh - 21px - 357px - 104px);
+}
+
+.searchSetion {
+  padding: 16px;
+  width: 100%;
+  border-radius: 16px;
+  background: #ffffff;
+  margin-bottom: 40px;
+}
+.searchSetion .input-group {
+  -ms-flex-wrap: unset;
+      flex-wrap: unset;
+}
+.searchSetion .input-group .input-group-prepend .input-group-text {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  height: 52px;
+  color: #6c757d;
+  font-size: 14px;
+  padding: 5px 10px;
+}
+.searchSetion .input-group .input-group-prepend .input-group-text.error {
+  border-color: #dc3545;
+}
+.searchSetion .input-group .input-group-prepend .input-group-text input {
+  margin-right: 6px;
+}
+.searchSetion #RegisterPhone,
+.searchSetion #CAID {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-left: 1px solid #e8e8e8;
+}
+.searchSetion .inputTwogroupBox,
+.searchSetion .SelectTwoGroupBox,
+.searchSetion .inputThreegroupBox,
+.searchSetion .SelectThreeGroupBox,
+.searchSetion #custom-datepicker {
+  margin-right: 8px;
+}
+.searchSetion .advancedTitle {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #212529;
+  margin-top: 12px;
+  margin-bottom: 4px;
+  margin-left: 6px;
+}
+.searchSetion .advancedTitle-content {
+  width: 37.5%;
+}
+.searchSetion .hidden {
+  display: none;
+}
+
+/* ---------------------------------------------------
+    productSearch STYLE
+----------------------------------------------------- */
+.productSearch .searchResult-content {
+  min-height: calc(100vh - 357px - 40px);
+}
+
+/* ---------------------------------------------------
+    orderSearch STYLE
+----------------------------------------------------- */
+.orderSearch .searchResult-content {
+  min-height: calc(100vh - 21px - 357px - 104px);
+}
+.orderSearch .advancedTitle-content {
+  width: 56%;
+}
+.orderSearch .order-expand-btn {
+  color: #212529;
+  width: 16px;
+  height: 16px;
+  background-color: #ffffff;
+  border: 1.5px solid #212529;
+  border-radius: 2px;
+  margin-right: 8px;
+}
+.orderSearch .order-expanded-btn {
+  color: #0d6efd;
+  width: 16px;
+  height: 16px;
+  background-color: #ffffff;
+  border: 1.5px solid #0d6efd;
+  border-radius: 2px;
+  margin-right: 8px;
+}
+.orderSearch .bi::before,
+.orderSearch [class^=bi-]::before,
+.orderSearch [class*=" bi-"]::before {
+  vertical-align: -0.2em;
+}
+.orderSearch .trIsChild,
+.orderSearch .trIsChild td {
+  border: none;
+  background-color: #f8f9fa;
+}
+.orderSearch .trIsChild td {
+  font-family: Noto Sans TC;
+  font-size: 14px !important;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #495057;
+  position: relative;
+}
+.orderSearch .trIsChild .ListOrderNumber {
+  z-index: 1;
+  background-color: #f8f9fa;
+  margin-left: 15px;
+  padding-left: 10px;
+}
+.orderSearch .trIsChild .trIsFirstChild::before {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 100%;
+  border: 1px solid #0d6efd;
+  border-radius: 8px;
+  border-right: none;
+  border-bottom: none;
+  top: 50%;
+}
+.orderSearch .trIsChild .trIsLastChild::before {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 100%;
+  border: 1px solid #0d6efd;
+  border-radius: 8px;
+  bottom: 50%;
+  border-right: none;
+  border-top: none;
+}
+.orderSearch .trIsChild .trIsMiddleChild::before {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 100%;
+  border-left: 1px solid #0d6efd;
+  bottom: 0%;
+  border-right: none;
+}
+.orderSearch .trIsChild .trIsMiddleChild::after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 100%;
+  border: 1px solid #0d6efd;
+  border-radius: 8px;
+  bottom: 50%;
+  border-right: none;
+  border-top: none;
+}
+.orderSearch .rotate-90 {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+.orderSearch .rotate-180 {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
+}
+
+/* ---------------------------------------------------
+    userAcount STYLE
+----------------------------------------------------- */
+.userAcount .searchResult-content {
+  padding: 16px;
+  width: 100%;
+  border-radius: 16px;
+  background: #ffffff;
+  margin-bottom: 40px;
+}
+
+/* ---------------------------------------------------
+    orderSearch STYLE
+----------------------------------------------------- */
+.voucherSearch .searchResult-content {
+  min-height: calc(100vh - 21px - 357px - 104px);
+}
+
+/* ---------------------------------------------------
+    couponManagement STYLE
+----------------------------------------------------- */
+.couponManagement {
+  /* 标签容器 */
+  /* 标签内容 */
+}
+.couponManagement .searchResult-content {
+  min-height: calc(100vh - 357px - 40px - 48px - 16px);
+}
+.couponManagement .searchResult-content table th:nth-child(2),
+.couponManagement .searchResult-content table td:nth-child(2) {
+  width: 50px;
+  min-width: unset;
+  white-space: nowrap;
+}
+.couponManagement .modal-footer .btn,
+.couponManagement td .btn {
+  padding: 12px 16px 12px 16px;
+  border-radius: 6px;
+  gap: 8px;
+  font-size: 16px;
+  white-space: nowrap;
+  max-height: 48px;
+  min-width: 66px;
+}
+.couponManagement .modal-footer .btn:disabled,
+.couponManagement td .btn:disabled {
+  opacity: 1;
+}
+.couponManagement .addAIDBtn {
+  border-radius: 6px;
+  padding: 6px;
+  font-size: 14px;
+  border: 1px solid #e8e8e8;
+  color: #495057;
+}
+.couponManagement .addAIDBtn:hover {
+  opacity: 0.8;
+}
+.couponManagement .close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.couponManagement .disabled {
+  color: #495057;
+  pointer-events: none;
+  cursor: default;
+}
+.couponManagement h6 {
+  margin-bottom: 10px;
+  margin-left: 4px;
+  font-size: 16px;
+}
+.couponManagement .tab-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.couponManagement .bearText {
+  font-size: 16px;
+}
+.couponManagement .tab {
+  padding: 10px;
+  border-radius: 4px 0px 0px 4px;
+  cursor: pointer;
+  -webkit-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+  font-size: 16px;
+  margin-bottom: 5px;
+  color: #0d6efd;
+}
+.couponManagement .tab.disabled {
+  color: #495057;
+  pointer-events: none;
+  cursor: default;
+  opacity: 0.5;
+}
+.couponManagement .tab:hover {
+  border: solid 1px #dee2e6;
+  border-right: none;
+}
+.couponManagement .tab:last-child {
+  border-right: none;
+}
+.couponManagement .tab.active {
+  color: #000;
+  background-color: #ffffff;
+  border: solid 1px #dee2e6;
+  border-right: none;
+}
+.couponManagement .tab-content {
+  padding: 10px;
+  background-color: #ffffff;
+  border-radius: 0px 4px 4px 4px;
+}
+.couponManagement .tab-content h6 {
+  color: #000;
+}
+.couponManagement .tab-content label {
+  color: #495057;
+}
+.couponManagement .tab-content.active {
+  display: block;
+}
+
+/* ---------------------------------------------------
+    custom DatePicker STYLE
+----------------------------------------------------- */
+.ant-picker-content th,
+.ant-picker-content td {
+  border-top: none;
+  border-bottom: none;
+  height: 40px;
+  vertical-align: middle;
+}
+
+.ant-picker-dropdown .ant-picker-header-view button {
+  cursor: unset;
+  pointer-events: none;
+}
+
+.ant-picker-header {
+  padding: 15px 23px;
+}
+
+.ant-picker-dropdown .ant-picker-header-view button:hover {
+  color: unset;
+}
+
+.ant-picker-dropdown .ant-picker-header > button:first-child, .ant-picker-dropdown .ant-picker-header > button:last-child {
+  display: none;
+}
+
+.datepicaker-error {
+  font-family: Noto Sans TC;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #dc3545;
+  margin-left: 16px;
+}
+
+.ant-picker-dropdown .ant-picker-panel-container {
+  padding: 4px;
+}
+
+.ant-picker-header-prev-btn {
+  color: white !important;
+}
+.ant-picker-header-prev-btn::before {
+  content: url("../assets/svg/arrow-left.svg");
+  display: inline-block;
+  width: 16px; /* 调整图标的宽度 */
+  height: 16px; /* 调整图标的高度 */
+  /* 其他样式 */
+}
+
+.ant-picker-header-next-btn {
+  color: white !important;
+}
+.ant-picker-header-next-btn::before {
+  content: url("../assets/svg/arrow-right.svg");
+  display: inline-block;
+  width: 16px; /* 调整图标的宽度 */
+  height: 16px; /* 调整图标的高度 */
+  /* 其他样式 */
+}
+
+.ant-picker-dropdown .ant-picker-date-panel .ant-picker-body {
+  padding-bottom: 0;
+}
+
+.ant-picker-dropdown .ant-picker-cell-in-view .ant-picker-cell-inner:hover::before {
+  position: absolute;
+  top: 0;
+  inset-inline-end: 0;
+  bottom: 0;
+  inset-inline-start: 0;
+  z-index: 1;
+  border: 1px solid #1677ff;
+  border-radius: 4px;
+  content: "";
+}
+
+.ant-picker-dropdown .ant-picker-cell-disabled::before {
+  background-color: #ffffff;
+}
+
+.ant-picker-dropdown .ant-picker-cell:not(.ant-picker-cell-in-view) .ant-picker-cell-inner {
+  display: none;
+}
+
+.ant-picker-dropdown .ant-picker-cell .ant-picker-cell-inner {
+  width: 100%;
+  height: 40px;
+}
+
+.ant-picker-dropdown .ant-picker-cell::before {
+  height: 40px;
+}
+.ant-picker-dropdown .ant-picker-cell .ant-picker-cell-inner {
+  height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.ant-picker-dropdown .ant-picker-cell-range-hover-start::after,
+.ant-picker-dropdown .ant-picker-cell-range-hover-end::after,
+.ant-picker-dropdown .ant-picker-cell-range-hover::after {
+  display: none;
+}
+.ant-picker-dropdown .ant-picker-cell-range-hover .ant-picker-cell-inner,
+.ant-picker-dropdown .ant-picker-cell-range-hover-end .ant-picker-cell-inner,
+.ant-picker-dropdown .ant-picker-cell-range-hover-start .ant-picker-cell-inner,
+.ant-picker-dropdown .ant-picker-cell-in-view.ant-picker-cell-in-range .ant-picker-cell-inner {
+  background-color: #cfe2ff;
+  color: #0a58ca;
+  font-family: Noto Sans TC;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: 0em;
+  text-align: left;
+  border-radius: 0;
+}
+.ant-picker-dropdown .ant-picker-cell-in-view.ant-picker-cell-today .ant-picker-cell-inner::before {
+  display: none;
+}
+.ant-picker-dropdown .ant-picker-cell-in-view.ant-picker-cell-range-start:not(.ant-picker-cell-range-start-single)::before,
+.ant-picker-dropdown .ant-picker-cell-in-view.ant-picker-cell-range-end:not(.ant-picker-cell-range-end-single)::before {
+  background-color: #cfe2ff;
+}
+.ant-picker-dropdown .ant-picker-panel-container .ant-picker-panel-layout {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+.ant-picker-dropdown .ant-picker-cell-in-range .ant-picker-cell-inner {
+  border-radius: 0;
+}
+.ant-picker-dropdown .ant-picker-panel-layout {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.ant-picker-dropdown .ant-picker-content th {
+  font-family: Noto Sans TC;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #212529;
+}
+
+.ant-picker-dropdown .ant-picker-cell:hover:not(.ant-picker-cell-in-view) .ant-picker-cell-inner,
+.ant-picker-dropdown .ant-picker-cell:hover:not(.ant-picker-cell-selected):not(.ant-picker-cell-range-start):not(.ant-picker-cell-range-end):not(.ant-picker-cell-range-hover-start):not(.ant-picker-cell-range-hover-end) .ant-picker-cell-inner {
+  background-color: #ffffff;
+}
+
+.ant-picker-dropdown .ant-picker-cell-disabled .ant-picker-cell-inner {
+  background-color: #ffffff;
+}
+
+.ant-picker-active-bar {
+  display: none;
+}
+
+.ant-picker-focused {
+  -webkit-box-shadow: unset;
+          box-shadow: unset;
+}
+
+.ant-picker-dropdown .ant-picker-cell {
+  padding: 0;
+}
+
+#custom-datepicker {
+  width: 100%;
+  position: relative;
+}
+#custom-datepicker i {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  pointer-events: none;
+}
+@media only screen and (max-width: 1350px) {
+  #custom-datepicker i {
+    display: none;
+  }
+}
+#custom-datepicker .custom-datepicker-label {
+  position: absolute;
+  top: 5px;
+  left: 16px;
+  z-index: 1;
+  font-family: Noto Sans TC;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: 0em;
+  color: #6c757d;
+}
+#custom-datepicker .ant-picker {
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: end;
+  padding: 5px 16px;
+}
+#custom-datepicker .ant-picker-dropdown .ant-picker-header button {
+  display: none;
+}
+#custom-datepicker .ant-picker-dropdown .ant-picker-content th,
+#custom-datepicker .ant-picker-dropdown .ant-picker-content td {
+  height: 40px;
+  padding: 0;
+}
+#custom-datepicker .ant-picker-dropdown .ant-picker-cell {
+  display: none !important;
+  padding: 0;
+}
+#custom-datepicker .ant-picker-dropdown .ant-picker-cell .ant-picker-cell-inner {
+  display: none !important;
+}
+#custom-datepicker .ant-picker-dropdown .ant-picker-date-panel .ant-picker-body {
+  padding: 12px;
+}
+#custom-datepicker .ant-picker-panels {
+  width: 600px;
+  height: 397px;
+}
+#custom-datepicker .ant-picker {
+  height: 52px;
+}
+#custom-datepicker .ant-picker:not(.ant-picker-status-error) {
+  border-color: #dee2e6;
+}
+#custom-datepicker .ant-picker input {
+  font-family: Noto Sans TC;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 21px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+@media only screen and (max-width: 1300px) {
+  #custom-datepicker .ant-picker .ant-picker-range-separator {
+    padding: 0;
+  }
+}
+#custom-datepicker .ant-picker .ant-picker-range-separator ::before {
+  content: "-";
+  font-family: Noto Sans TC;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 21px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #000;
+  position: absolute;
+  top: -5px;
+}
+#custom-datepicker .ant-picker .ant-picker-range-separator svg {
+  display: none;
+}
+#custom-datepicker .ant-picker .ant-picker-suffix .anticon-calendar {
+  display: none;
+}
+#custom-datepicker .ant-picker .ant-picker-input {
+  max-width: 89px;
+}
+@media only screen and (max-width: 1550px) {
+  #custom-datepicker .ant-picker .ant-picker-input {
+    width: 100%;
+  }
+}

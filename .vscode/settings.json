@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/bfb7827e-cb3e-48ad-b060-850b9e3cd2d7/resourceGroups/t-twtaxi-ec/providers/Microsoft.Web/sites/ecbotest",
+    "appService.deploySubpath": "src\\dist"
+}
