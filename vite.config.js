@@ -13,7 +13,8 @@ export default defineConfig({
   // base: '/EC_Back/', // 新增这一行，指定基础路径为 '/NEWTEST/'
   // base: '/', // 新增这一行，指定基础路径为 '/NEWTEST/'
   // base: '/rd.e-commerce/ec_backoffice.website/feature/41035/',
-  base: '/',
+  // base: '/',
+  base: '/ecbotemp/',
   plugins: [
     vue(),
     Pages(),
